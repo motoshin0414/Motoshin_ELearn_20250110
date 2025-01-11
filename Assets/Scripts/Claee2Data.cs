@@ -12,7 +12,13 @@ public class Claee2Data:MonoBehaviour
      */
     public int coin = 1000;
     public float movespeed = 3.5f;
-    public float trunspeed = 30.0f;
+    public float trunspeed = 30.0F; //大小F都可
     public string name = "源神";
     public bool gameover = false;
+
+    public string Playername = "motoshin";
+    public  char ABL = 'A';                 //字元:只能儲存一個字元，使用單引號
+
+    //溢位
+    //public sbyte Num = 128;//sbyte只能儲存-127～127
 }
