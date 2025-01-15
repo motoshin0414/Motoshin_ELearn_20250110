@@ -38,6 +38,10 @@ public class Class4Funtion : MonoBehaviour
 
         //框選要整理的程式，按下Ctrl + K + S，選擇#region，快速完成程式碼片段
 
+        float BMI = BMICount(168, 60);
+        Debug.Log(BMI);
+        float MYBMI = BMICount(160, 75);
+        Debug.Log(MYBMI);
 
     }
     #region 方法基本語法與參數
@@ -79,4 +83,28 @@ public class Class4Funtion : MonoBehaviour
         return num * num;
     }
 
+    private float BMICount(float High, float Weight)
+    {
+        float BMI = Weight / ((High / 100) * (High / 100));
+        return BMI;
+    }
+
+    //方法多載 function Overload
+    //參數的類型或數量不同
+    //零個參數
+    /// <summary>
+    /// 移動
+    /// </summary>
+    private void Move()
+    {
+        Debug.Log("移動中");
+    }
+    /// <summary>
+    /// 移動，並顯示速度
+    /// </summary>
+    /// <param name="speed">移動速度</param>
+    private void Move(float speed)
+    {
+        Debug.Log($"移動中，速度{speed}");
+    }
 }
