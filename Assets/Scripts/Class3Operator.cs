@@ -29,7 +29,7 @@ public class Class3Operator : MonoBehaviour
     private void Start()
     {
         #region 布林直邏輯運算子
-        Debug.Log("<color = #f93>布林值邏輯運算結果</color>");
+        Debug.Log($"<color = #f93>布林值邏輯運算結果</color>");
         Debug.Log(!true);
         Debug.Log(!false);
         bool boolVarTrue = true;
@@ -37,13 +37,13 @@ public class Class3Operator : MonoBehaviour
         Debug.Log(!boolVarTrue);
         Debug.Log(!boolVarFlase);
 
-        Debug.Log("<color = #f93>布林值邏輯並且以及或是&&，||</color>");
-        Debug.Log("<color = #f93>&&篇</color>");
+        Debug.Log($"<color = #f93>布林值邏輯並且以及或是&&，||</color>");
+        Debug.Log($"<color = #f93>&&篇</color>");
         Debug.Log(true && true);
         Debug.Log(true && false);
         Debug.Log(false && true);
         Debug.Log(false && false);
-        Debug.Log("<color = #f93>||篇</color>");
+        Debug.Log($"<color = #f93>||篇</color>");
         Debug.Log(true || true);
         Debug.Log(true || false);
         Debug.Log(false || true);
