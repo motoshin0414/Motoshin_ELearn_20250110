@@ -221,9 +221,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1206037596}
   - component: {fileID: 1206037597}
-  - component: {fileID: 1206037598}
   m_Layer: 0
-  m_Name: Class_05_Selection
+  m_Name: Class_06_While
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,22 +252,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206037594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f92fcef88829d5499485511ec93c668, type: 3}
+  m_Script: {fileID: 11500000, guid: 5045193eaeab04c49a1217170803f537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1206037598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206037594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a181d2f3da21c244bee5e31717760b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  season: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
