@@ -1,25 +1,28 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace motoshin
 {
     /// <summary>
-    /// ÀRºA static
+    /// éœæ…‹ static
     /// </summary>
     
     public class Class7_2_static : MonoBehaviour
     {   
         #region 
-        //«DÀRºAÅÜ¼Æ
+        //ééœæ…‹è®Šæ•¸
         public int Itembug = 10;
-        //ÀRºAÅÜ¼Æ:­×¹¢µü«á­±²K¥[ÃöÁä¦r static
-        //ÀRºAÅÜ¼Æ³¡·|Åã¥Ü¦b­±ªO¤W
+        //éœæ…‹è®Šæ•¸:ä¿®é£¾è©å¾Œé¢æ·»åŠ é—œéµå­— static
+        //éœæ…‹è®Šæ•¸éƒ¨æœƒé¡¯ç¤ºåœ¨é¢æ¿ä¸Š
         public static int Itembug2 = 20;
 
-        //«DÀRºAÄİ©Ê
-        public string skillMain => "¤õ²y³N";
-        //ÀRºAÄİ©Ê
-        public static string skillsecned => "¦B­á³N";
+        //ééœæ…‹å±¬æ€§
+        public string skillMain => "ç«çƒè¡“";
+        //éœæ…‹å±¬æ€§
+        public static string skillsecned => "å†°å‡è¡“";
+
+        private float attack = 10;
+        private static float MP = 100;
         #endregion
         private void Awake()
         {
@@ -31,21 +34,29 @@ namespace motoshin
 
         public void Punch()
         {
-            Debug.Log("¨Ï¥Î®±À»");
+            Debug.Log("ééœæ…‹æ–¹æ³•:ä½¿ç”¨æ‹³æ“Š");
+            //ééœæ…‹æ–¹æ³•å…§å¯ä»¥å­˜å–æ‰€æœ‰æˆå“¡
+            Debug.Log($"ééœæ…‹æ”»æ“ŠåŠ›:{attack}");
+            Debug.Log($"éœæ…‹é­”åŠ›:{MP}");
         }
-        public void Kick()
+
+        public static void Kick()
         {
-            Debug.Log("¨Ï¥Î½ğÀ»");
+            Debug.Log("éœæ…‹æ–¹æ³•:ä½¿ç”¨è¸¢æ“Š");
+            //éœæ…‹æ–¹æ³•å…§åªèƒ½å­˜å–éœæ…‹æˆå“¡
+            //ç”±æ–¼attack æ˜¯ééœæ…‹æˆå“¡æ‰€ä»¥ç„¡æ³•å­˜å–
+            //Debug.Log($"ééœæ…‹æ”»æ“ŠåŠ›:{attack}");
+            Debug.Log($"éœæ…‹é­”åŠ›:{MP}");
         }
 
         private void Start()
         {
-            //¦bUnity¤ºªº®t²§
-            //¤Á´«³õ´º®É
-            //«DÀRºA¦¨­û·|³QÄÀ©ñ(ÁÙ­ì¬°¹w³]­È)
+            //åœ¨Unityå…§çš„å·®ç•°
+            //åˆ‡æ›å ´æ™¯æ™‚
+            //ééœæ…‹æˆå“¡æœƒè¢«é‡‹æ”¾(é‚„åŸç‚ºé è¨­å€¼)
             Itembug++;
             Debug.Log(Itembug);
-            //ÀRºA¦¨­û¤£·|³QÄÀ©ñ
+            //éœæ…‹æˆå“¡ä¸æœƒè¢«é‡‹æ”¾
             Itembug2++;
             Debug.Log(Itembug2);
         }
