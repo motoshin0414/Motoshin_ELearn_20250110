@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1206037596
 Transform:
   m_ObjectHideFlags: 0
@@ -265,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074184813}
   - component: {fileID: 2074184814}
+  - component: {fileID: 2074184815}
   m_Layer: 0
   m_Name: Class_07_property
   m_TagString: Untagged
@@ -300,6 +301,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 3.5
+--- !u!114 &2074184815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074184812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff1c4c3b54a96488d1563cb0fa9527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  property: {fileID: 2074184814}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
