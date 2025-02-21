@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using motoshin.Tools;
 
 namespace motoshin
 {
@@ -21,6 +22,9 @@ namespace motoshin
 
             npcJack.Talk();
             npcMotoshin.Talk();
+
+            //測試輸出工具
+            LogSystem.LogWithColor("測試輸出工具", "#666");
         }
     }
 }
