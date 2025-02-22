@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using motoshin.Tools;
+using System;
 
 namespace motoshin
 {
@@ -55,6 +56,29 @@ public class Class9_2_DataTypeSwitch : MonoBehaviour
             byte4 = (byte)int3;
             LogSystem.LogWithColor(byte4, "#F71");
             #endregion
+        }
+
+        private void Start()
+        {
+            //將整數轉為字串
+            int count = 99;
+            var intTostring = Convert.ToString(count);
+            LogSystem.LogWithColor(intTostring.GetType(), "#F54");
+            //將布林值轉為字串
+            bool isover = false;
+            var boolTostring = Convert.ToString(isover);
+            LogSystem.LogWithColor(boolTostring.GetType(), "#F54");
+
+            float move = 3.5f;
+            var floatTobyte = Convert.ToByte(move);
+            LogSystem.LogWithColor(floatTobyte.GetType(), "#F41");
+
+            //true = 1,false = 0
+            bool isClear = true;
+            var boolTobyte = Convert.ToByte(isClear);
+            LogSystem.LogWithColor(boolTobyte.GetType(), "#F41");
+            LogSystem.LogWithColor(boolTobyte, "#F41");
+
         }
     }
 
