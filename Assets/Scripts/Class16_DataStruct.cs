@@ -149,6 +149,41 @@ namespace motoshin
                 { 10,"紅黑龍"} , { 3,"掉落井"} , {1,"跳躍"}
             };
             LogDictionary<int , string>(deck);
+            deck.Add(7, "復活");
+            LogSystem.LogWithColor($"是否有編號3資料:{deck.ContainsKey(3)}","#366");
+            LogSystem.LogWithColor($"是否有掃把星資料:{deck.ContainsValue("掃把星")}","#366");
+            #endregion
+
+            #region 排序清單
+            //SortedList:保持排序且不會有重複的鍵 (以鍵排序:小到大)
+            SortedList<string , int> board = new SortedList<string , int>();
+            board.Add("motoshin", 95);
+            board.Add("Ans", 90);
+            board.Add("Aster", 92);
+            //board.Add("Aster", 82);   //重複導致錯誤
+            board.Add("Carry", 93);
+            LogSortedList<string , int>(board);
+            #endregion
+
+            #region 排序字典
+            //SortedDictionary:保持排序並且不會有重複的字典 (以鍵排序:小到大)
+            SortedDictionary<string , int> score = new SortedDictionary<string , int>();
+            score.Add("motoshin", 100);
+            score.Add("Kevin", 54);
+            score.Add("King", 54);
+            //score.Add("An", 73);      //重複導致錯誤
+            score.Add("An", 76);
+            LogSortedDictionary<string , int>(score);
+
+            //SortedList 與 SortedDictionary 的差異
+            //1.SortedList 是使用陣列方式儲存，比較省記憶體空間
+            //2.SortedDictionary 是使用樹狀結構方式儲存，比較占記憶體空間
+            //3.SortedList 可以使用索引值存取[0]
+            LogSystem.LogWithColor($"排行榜第一筆:{board.Keys[0]}", "#666");
+            //LogSystem.LogWithColor($"排行榜第一筆:{score.Keys[0]}", "#666");
+
+            //4.SortedList 大量資料增減時比較耗記憶體
+            //如果資料不需要頻繁的增減建議使用 SortedList，反之建議使用 SortedDictionary
             #endregion
         }
 
@@ -200,6 +235,24 @@ namespace motoshin
                 LogSystem.LogWithColor($"卡牌的名稱:{item.Value}", "#F66");
             }
             LogSystem.LogWithColor("--------", "#FFF");
+        }
+
+        private void LogSortedList<T,U>(SortedList<T,U> list)
+        {
+            foreach (var item in list)
+            {
+                LogSystem.LogWithColor($"{item.Key}的分數:{item.Value}", "#F99");
+            }
+            LogSystem.LogWithColor("--------", "#FFF");
+        }
+
+        private void LogSortedDictionary<T,U>(SortedDictionary<T,U> dict)
+        {
+            foreach (var item in dict)
+                        {
+                            LogSystem.LogWithColor($"{item.Key}的分數:{item.Value}", "#F99");
+                        }
+                        LogSystem.LogWithColor("--------", "#FFF");
         }
     }
 
