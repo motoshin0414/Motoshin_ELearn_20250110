@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using motoshin.Tools;
+using System.Linq;
 
 namespace motoshin
 {
@@ -87,6 +88,7 @@ namespace motoshin
 
             #endregion
 
+            #region 佇列
             Queue<string> player = new Queue<string>();
             player.Enqueue("法師");
             player.Enqueue("戰士");
@@ -99,6 +101,55 @@ namespace motoshin
             //拿東西刪除，與堆疊的Pop相同
             LogSystem.LogWithColor(player.Dequeue(), "#F33");
             LogQueue<string>(player);
+            #endregion
+
+            #region 鏈結串列
+            //鏈結串列
+            string[] skillsArray = new string[] { "火球", "冰暴" };
+            LinkedList<string> skills = new LinkedList<string>(skillsArray);
+            LogLinkedList<string>(skills);
+            skills.AddLast("落雷");
+            LogLinkedList<string>(skills);
+            skills.AddFirst("岩崩");
+            LogLinkedList<string>(skills);
+
+            //在火球後面添加一個毒霧
+            LinkedListNode<string> SkillFire = skills.Find("火球");
+            skills.AddAfter(SkillFire, "毒霧");
+            //在火球前面加一個瞬移
+            skills.AddBefore(SkillFire, "瞬移");
+            LogLinkedList<string>(skills);
+            #endregion
+
+            #region 排序集合
+            //自動排序並且不重複的集合(小到大)
+            SortedSet<int> counts = new SortedSet<int> { 9, 2, 80, 1 };
+            
+            LogSortedSet<int>(counts);
+            counts.Add(77);
+            counts.Add(123);
+            counts.Add(88);
+            counts.Add(3);
+            LogSortedSet<int>(counts);
+            LogSystem.LogWithColor($"最小:{counts.Min}", "#FF4");
+            LogSystem.LogWithColor($"最大:{counts.Max}", "#FF4");
+
+            SortedSet<int> LVS = new SortedSet<int> { 7, 3, 75, 123, 5, 80 };
+            //交集與差集
+            counts.IntersectWith(LVS);
+            LogSortedSet<int>(counts);
+            counts.ExceptWith(LVS);
+            LogSortedSet<int>(counts);
+            #endregion
+
+            #region 字典
+            //字典
+            Dictionary<int, string> deck = new Dictionary<int, string>()
+            {
+                { 10,"紅黑龍"} , { 3,"掉落井"} , {1,"跳躍"}
+            };
+            LogDictionary<int , string>(deck);
+            #endregion
         }
 
         private void LogStack<T>(Stack<T> stack)
@@ -121,6 +172,35 @@ namespace motoshin
             }
         }
 
+        private void LogLinkedList<T>(LinkedList<T> linkedList)
+        {
+            foreach (var item in linkedList)
+            {
+                LogSystem.LogWithColor(item, "#FF1");
+            }
+            LogSystem.LogWithColor("----------", "#FFF");
+        }
+
+        private void LogSortedSet<T>(SortedSet<T> set)
+        {
+            foreach(var item in set)
+            {
+                LogSystem.LogWithColor(item, "#FF9");
+
+            }
+            LogSystem.LogWithColor("-----", "#FFF");
+
+        }
+
+        private void LogDictionary<T,U>(Dictionary<T, U> dict)
+        {
+            foreach(var item in dict)
+            {
+                LogSystem.LogWithColor($"卡牌的編號:{item.Key}", "#F66");
+                LogSystem.LogWithColor($"卡牌的名稱:{item.Value}", "#F66");
+            }
+            LogSystem.LogWithColor("--------", "#FFF");
+        }
     }
 
 }
