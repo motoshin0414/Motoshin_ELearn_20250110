@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using motoshin.Tools;
+using static motoshin.Class15.Class15_InterfaceObject;
 
 
 namespace motoshin.Class15
@@ -7,6 +8,7 @@ namespace motoshin.Class15
     public class Class15_Interface : MonoBehaviour
     {
         public object invertoryFirst;
+        public object invertorySecond;
 
         private void Awake()
         {
@@ -16,6 +18,13 @@ namespace motoshin.Class15
             if (random == 1) invertoryFirst = new Prop();
             else if (random == 2) invertoryFirst = new Equipment();
             else if (random == 3) invertoryFirst = new Map();
+
+            int randomSecond = Random.Range(0, 3);
+            LogSystem.LogWithColor($"隨機數字:{random}", "#FFF");
+
+            if (randomSecond == 1) invertorySecond = new Weapon();
+            else if (randomSecond == 2) invertorySecond = new Potion();
+            else if (randomSecond == 3) invertorySecond = new Chest();
         }
 
         private void Update()
@@ -28,6 +37,14 @@ namespace motoshin.Class15
                 if (invertoryFirst is Equipment) ((Equipment)invertoryFirst).Use();
                 //如果第一格是地圖，就使用地圖
                 if (invertoryFirst is Map) ((Map)invertoryFirst).Use();
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if(invertorySecond is IUse)((IUse)invertorySecond).Use();
+
+                if(invertorySecond is IDestory) ((IDestory)invertorySecond).Destory();
 
             }
         }

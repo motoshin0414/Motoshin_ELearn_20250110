@@ -22,6 +22,11 @@ namespace motoshin.Class15
             public void Use();
         }
 
+        public interface IDestory
+        {
+            public void Destory();
+        }
+
         //步驟2.
         //C# 單一繼承，多重實作介面
         public class Weapon : IUse
@@ -32,20 +37,28 @@ namespace motoshin.Class15
 
             }
         }
-        public class Potion : IUse
+        public class Potion : IUse , IDestory 
         {
             public void Use()
             {
                 LogSystem.LogWithColor("使用藥水，恢復魔力", "#F73");
 
             }
+            public void Destory()
+            {
+                 LogSystem.LogWithColor("已使用藥水，銷毀", "#F99");
+            }
         }
-        public class Chest : IUse
+        public class Chest : IUse , IDestory
         {
             public void Use()
             {
                 LogSystem.LogWithColor("使用寶箱，獲得隨機道具", "#F73");
 
+            }
+            public void Destory()
+            {
+                LogSystem.LogWithColor("已使用寶箱，銷毀", "#F99");
             }
         }
     }
