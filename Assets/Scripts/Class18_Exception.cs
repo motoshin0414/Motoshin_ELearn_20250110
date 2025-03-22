@@ -8,6 +8,7 @@ namespace motoshin.Class18
     {
         private void Awake()
         {
+            #region 官方例外處理
             #region 除0錯誤處理
             LogSystem.LogWithColor($"{Division(9, 9)}", "#f33");
             LogSystem.LogWithColor($"{Division(111, 8)}", "#f33");
@@ -21,7 +22,32 @@ namespace motoshin.Class18
             #endregion
 
             SetEnemy();
+            #endregion
+            try
+            {
+                Damage(30);
+                Damage(80);
+            }
+            catch (Exception e)
+            {
+
+                LogSystem.LogWithColor(e, "#9f9");
+            }
+
+            try
+            {
+                Cure(30);
+                Cure(-10);
+            }
+            catch (CureValueLowerZeroException e)
+            {
+
+                LogSystem.LogWithColor(e.Message, "#7f3");
+
+            }
         }
+
+        #region 官方例外處理
         /// <summary>
         /// 除法
         /// </summary>
@@ -36,13 +62,13 @@ namespace motoshin.Class18
                 return x / y;       //發生例外
             }
             //捕捉到例外為「除以0」時將會執行
-            catch (DivideByZeroException e) 
+            catch (DivideByZeroException e)
             {
                 LogSystem.LogWithColor($"分子不能為0 | {e.Message}", "#F99");
                 return null;
             }
             //最後區域
-            finally 
+            finally
             {
                 LogSystem.LogWithColor("例外處理完畢", "#F73");
             }
@@ -58,7 +84,7 @@ namespace motoshin.Class18
             }
             catch (DivideByZeroException)
             {
-               LogSystem.LogWithColor("發生例外","#F11");
+                LogSystem.LogWithColor("發生例外", "#F11");
                 return null;
             }
             catch (IndexOutOfRangeException e)
@@ -81,12 +107,49 @@ namespace motoshin.Class18
             catch (Exception e)         //Exception 處理所有例外
             {
 
-                LogSystem.LogWithColor($"發生例外:{e.Message}","#996");
+                LogSystem.LogWithColor($"發生例外:{e.Message}", "#996");
             }
         }
+        #endregion
 
+        private float hp = 100;
+
+        private void Damage(float damage)
+        {
+            hp -= damage;
+            if (hp <= 0)
+            {
+                throw new Exception("血量小於零");
+            }
+            else
+            {
+                LogSystem.LogWithColor($"血量:{hp}", "#951");
+            }
+        }
+        private void Cure(float cure)
+        {
+            if (cure < 0) 
+            {
+                //throw new Exception("治癒值小於零");
+                throw new CureValueLowerZeroException("治癒值小於零");
+
+            }
+            else
+            {
+                hp += cure;
+            }
+        }
+    }
+
+    public class CureValueLowerZeroException : Exception
+    {
+        public CureValueLowerZeroException(string message):base(message)
+        {
+
+        }
 
     }
-    
+
+
 }
 
